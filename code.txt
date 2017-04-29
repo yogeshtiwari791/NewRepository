@@ -1,6 +1,39 @@
-bvbxvjxjvhvjvbxv
+package com;
 
-zb
-z
-b
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.opera.OperaDriver;
 
+public class GmailAutomation {
+	
+	public static WebDriver driver;
+	public static String browser="Firefox";
+	public static void main(String[] args) {
+		if(browser.equals("Chrome"))
+		{
+			System.out.println("Starting Chrome browser");
+			driver= new ChromeDriver();
+			
+		}else if(browser.equals("Firefox"))
+		{
+			System.out.println(" Starting Firefox browser");
+			driver= new FirefoxDriver();
+		}
+		else 
+		{
+		System.out.println("Starting Opera browser");
+		driver=new OperaDriver();
+		}
+		
+		driver.manage().window().maximize();
+		driver.get("http://gmail.com");
+		System.out.println("The title of the website is: "+driver.getTitle());
+		driver.quit();
+		
+		
+		
+	}
+	
+
+}
